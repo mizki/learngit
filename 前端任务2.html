@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    #button3
+    {
+        background-color: red;
+        border-color:red;
+    }
+    p{
+        font-weight: normal;
+    }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+ var tmnum=120; //条目的数量
+ var  tmnum1=6; //每页显示的条目数
+    var nrnum=3; //每个标题下的内容数;
+    var i;
+    var j;
+    var newinput;
+var head=document.getElementById("body");
+    var n=Math.ceil(tmnum/tmnum1);
+ function moveto()
+ {
+     var button3=move.value;
+     if(button3>=1&&button3<=n)
+     {
+         topage(button3);
+     }
+     else {alert("你输入了错误的页数") }
+ }
+    function topage(a)
+    {
+        var button3=document.getElementById("button3");
+        var button2=document.getElementById("button2");
+        var button4=document.getElementById("button4");
+
+        button3.value=a;
+        button2.value=a-1;
+        button4.value=a-1+2;
+        if(a<=1&&a>=1) {button2.value="…";}
+        if (a<=n&&a>=n) {button4.value="…";}
+        page();
+    }
+    function pageup()
+    {
+        var button3=document.getElementById("button3");
+        if (button3.value-1>=1)
+        { topage(button3.value-1);}
+
+    }
+    function pagedown()
+    {
+        var button3=document.getElementById("button3");
+       if(button3.value-1+2<=n)
+        topage(button3.value-1+2);
+
+    }
+    function changepage()
+    {   var do1=document.getElementById("change");
+        var do2=document.getElementById("change2");
+        var do3=document.getElementById("change3");
+        var tm=do1.value;
+        var tm1=do2.value;
+        tmunm=tm;
+        tmnum=do1.value;
+        tmnum1=tm1;
+        nrnum=do3.value;
+        n=Math.ceil(tmnum/tmnum1);
+        //var bu3=document.getElementById(button3);
+        topage(1);
+    }
+    function page()
+
+    {
+        var body=document.getElementById("body");
+        body.innerHTML="";
+      //  alert(tmnum);
+     //   alert(tmnum1);
+      //  alert(nrnum);
+        for(i=0;i<tmnum1;i++)
+        {var h3=document.createElement("h3");
+var button3=document.getElementById("button3");
+h3.innerHTML="这是标题"+ ((button3.value-1)*tmnum1+i+1);
+for (j=0;j<nrnum;j++)
+{var p=document.createElement("p");
+p.innerHTML="这是标题"+((button3.value-1)*tmnum1+i+1)+"下的内容"+(j+1);
+h3.appendChild(p);
+}
+  body.appendChild(h3);      }
+    }
+var button3=document.getElementById("button3");
+    topage(button3.value);
+   page();
+    </script>
+<div id="head">
+    <form id="head1">
+ <input type="button" value="上一页" onclick="pageup()">
+        <input type="button"  value="…"  onclick="">
+        <input type="button" id="button2" value="2"  onclick="pageup()">
+        <input type="button" id="button3" value="3"  onclick="page()" >
+        <input type="button" id="button4" value="4"  onclick="pagedown()">
+        <input type="button"  value="…"  onclick="">
+        <input type="button" value="下一页"  onclick= "pagedown()">
+        &nbsp;&nbsp;
+     跳转到第
+        <input type="text" id="move"   size="30">页
+        <input type="button" value="跳转" onclick="moveto()" >
+    </form>
+    <br/> <br/>
+
+</div>
+<div><form>
+    条目数
+    <input type="text" id="change"   size="5" />
+    每页显示的条目数
+    <input type="text" id="change2"   size="5" />
+    每个条目下的内容数
+    <input type="text" id="change3"   size="5" />
+    <input type="button" id="change4"  onclick="changepage()" value="change">
+</form>
+</div>
+<h1>
+    列表内容显示
+</h1>
+<div id="body">
+</div>
+</body>
+</html>

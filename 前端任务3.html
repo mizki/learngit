@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<style type="text/css">
+    *{
+        font-family: "Microsoft YaHei UI";
+    }
+ #Form_1 {
+    float:right;
+}
+    /*#input1{
+        border-color: cornflowerblue;
+        border-style: solid;
+        size: 120px;
+        height: 25px;
+        float:right;
+        position: relative;
+        top:15px;
+        right:100px;
+
+    }
+    #input2{
+        border-color: cornflowerblue;
+        border-style: solid;
+        height: 30px;
+        float:right;
+        position: relative;
+        top:15px;
+        right:100px;
+    }*/
+    #Title
+    {font-weight:bold;
+       font-size:25px;
+        position: relative;
+        top:20px;
+        left:950px;
+    }
+    #sma
+    {
+        font-size:10px;
+        position:relative;
+        left:950px;
+        top: 35px;
+        color: cadetblue;
+    }
+    #will
+    {
+        position:relative;
+        left:950px;
+        top:50px;
+        line-height:1.5;
+    }
+    #wri
+    {
+        position:relative;
+        left:950px;
+        top:65px;
+    }
+    .bold
+    {
+        font-weight:bold;
+    }
+    #dir
+    {
+        position:relative;
+        left:950px;
+        top:80px;
+    }
+    #sta
+    {
+        position:relative;
+        left:950px;
+        top:95px;
+    }
+    #dimg
+    {
+        position:relative;
+        left:770px;
+        bottom: 120px;
+    }
+    #img
+    {
+        height: 180px;
+        width:125px;
+    }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+    function loadXMLDoc() {
+        var xmlhttp;
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.open("GET", "https://www.omdbapi.com/?apikey=2fb7569a&t=" + text1.value);
+        xmlhttp.send();
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState === 4 && xmlhttp.status ===200) {
+                 Jsonobj = xmlhttp.responseText;
+                 Jsonobject=JSON.parse(Jsonobj);
+            }
+        };
+       // var text1 = document.getElementById(input1);
+        var imgg = document.getElementById("dimg");
+        imgg.src = Jsonobject.Poster;
+        var title = document.getElementById("Title");
+        title.innerHTML = Jsonobject.Title;
+        var sma = document.getElementById("sma");
+        sma.innerHTML = Jsonobject.Year + & nbsp+ & nbsp+ & nbsp + Jsonobject.Rated + & nbsp+ & nbsp + & nbsp + Jsonobject.Genre;
+        var will = document.getElementById("will");
+        will.innerHTML = Jsonobject.Plot;
+        var wrii = document.getElementById("wrii");
+        wrii.innerHTML = Jsonobject.Writer;
+        var dirr = document.getElementById("dirr");
+        dirr.innerHTML = Jsonobject.Director;
+        var staa = document.getElementById("staa");
+        staa.innerHTML = Jsonobject.Actors;
+
+    }
+    </script>
+<div>
+<form id="Form_1">
+    <input  id="input1" type="text" value="good" />
+    <button  id="input2" onclick="loadXMLDoc()" >search</button>
+
+
+</form>
+</div>
+<div id="Title">
+    <br/>
+
+Good Will Hunting
+    </div>
+<div id="sma">
+    R    &nbsp;&nbsp;&nbsp;    1997  &nbsp;&nbsp;  &nbsp;     Drama
+</div>
+<div id="will">
+    Will Hunting, a janitor at M.I.T., has a gift for mathematics, but needs <br/>
+    help from a psychologist to find direction in his life.
+</div>
+<div id="wri">
+    <span class="bold">Written by:</span><span id="wrii">Matt Damon, Ben Affleck</span>
+</div>
+<div id="dir">
+    <span class="bold">Directed by:</span><span id="dirr">Gus Van Sant</span>
+</div>
+<div id="sta">
+    <span class="bold">Starring:</span><br/>
+    <span id="staa">Matt Damon, Ben Affleck, Stellan Skarsgård, John Mighton</span>
+</div>
+<div id="dimg">
+    <img id="img" src="https://ia.media-imdb.com/images/M/MV5BOTI0MzcxMTYtZDVkMy00NjY1LTgyMTYtZmUxN2M3NmQ2NWJhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg">
+</div>
+</body>
+</html>
