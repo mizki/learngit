@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    *{
+        font-family: 微软雅黑;
+    }
+    #search
+    {float:right;
+        position: relative;
+    right:50px;
+    }
+    #txt1
+    {border-color: cornflowerblue;
+        size:25px;
+    border-style: solid;}
+    #Title
+    {font-weight:bold;
+        font-size:25px;
+        position: relative;
+        top:20px;
+        left:950px;
+    }
+    #sma
+    {
+        font-size:10px;
+        position:relative;
+        left:950px;
+        top: 35px;
+        color: cadetblue;
+    }
+    #will
+    {
+        width: 38%;
+        position:relative;
+        left:950px;
+        top:50px;
+        line-height:1.5;
+    }
+    #wri
+    {width:38%;
+        position:relative;
+        left:950px;
+        top:65px;
+    }
+    .bold
+    {
+        font-weight:bold;
+    }
+    #dir
+    {   width:38%;
+        position:relative;
+        left:950px;
+        top:80px;
+    }
+    #sta
+    {width:38%;
+        position:relative;
+        left:950px;
+        top:95px;
+    }
+    #dimg
+    {
+        position:relative;
+        left:770px;
+        bottom: 120px;
+    }
+    #img
+    {
+        height: 180px;
+        width:125px;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function changeimg()
+        {
+            var imgg=document.getElementById("img");
+            imgg.src=json.Poster;
+        }
+        function showHint(str)
+        {
+            var xmlhttp;
+          // if (str.length===0)
+            //{
+           //     document.body.innerHTML="";
+          //      return;
+         //   }
+            if (window.XMLHttpRequest)
+            {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp=new XMLHttpRequest();
+            }
+            else
+            {// code for IE6, IE5
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange=function()
+            {
+                if (xmlhttp.readyState===4 && xmlhttp.status===200)
+                {
+                     json=JSON.parse(xmlhttp.responseText);
+                    //document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+                }
+            };
+            xmlhttp.open("GET","https://www.omdbapi.com/?apikey=2fb7569a&t="+str);
+            xmlhttp.send();
+           // var json=JSON.parse(document.getElementById("txtHint").innerHTML);
+
+            var imgg = document.getElementById("img");
+         //changeimg();
+            var imgsrc_1=json.Poster;
+          imgg.src = imgsrc_1;
+
+            var title = document.getElementById("Title");
+            title.innerHTML = json.Title;
+            var sma1 = document.getElementById("sma1");
+            sma1.innerHTML = json.Year;//& nbsp & nbsp & nbsp + json.Rated  & nbsp & nbsp  & nbsp+ json.Genre;
+            var sma2 = document.getElementById("sma2");
+            sma2.innerHTML = json.Rated;
+            var sma3 = document.getElementById("sma3");
+            sma3.innerHTML = json.Genre;
+             will = document.getElementById("will");
+           /* if(json.Plot.length()>=73)
+            { var plot1=json.Plot.substring(0,72) ;
+            var plot2=json.Plot.substring(73);
+            var sp1=document.getElementById("sp1");
+            var sp2=document.getElementById("sp2");
+              sp1.innerHTML=plot1;
+              sp2.innerHTML=plot2;
+            }*/
+           will.innerHTML = json.Plot;
+
+            var wrii = document.getElementById("wrii");
+            wrii.innerHTML = json.Writer;
+            var dirr = document.getElementById("dirr");
+            dirr.innerHTML = json.Director;
+            var staa = document.getElementById("staa");
+            staa.innerHTML = json.Actors;
+
+
+
+        }
+    </script>
+</head>
+<body>
+<form action="" id="search">
+    <input type="text" id="txt1" onkeyup="showHint(this.value)"  value="good"/>
+</form>
+<p><span id="txtHint"></span></p>
+<div id="Title">
+    <br/>
+
+    Good Will Hunting
+</div>
+<div id="sma">
+    <span id="sma1"> R</span>    &nbsp;&nbsp;&nbsp;   <span id="sma2"> 1997</span>  &nbsp;&nbsp;  &nbsp;    <span id="sma3"> Drama</span>
+</div>
+<div id="will">
+    Will Hunting, a janitor at M.I.T., has a gift for mathematics, but needs help from a psychologist to find direction in his life.
+</div>
+<div id="wri">
+    <span class="bold">Written by:</span><span id="wrii">Matt Damon, Ben Affleck</span>
+</div>
+<div id="dir">
+    <span class="bold">Directed by:</span><span id="dirr">Gus Van Sant</span>
+</div>
+<div id="sta">
+    <span class="bold">Starring:</span><br/>
+    <span id="staa">Matt Damon, Ben Affleck, Stellan Skarsgård, John Mighton</span>
+</div>
+<div id="dimg">
+    <img id="img" src="https://ia.media-imdb.com/images/M/MV5BOTI0MzcxMTYtZDVkMy00NjY1LTgyMTYtZmUxN2M3NmQ2NWJhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg">
+</div>
+
+
+
+</body>
+</html>
