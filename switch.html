@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nintendo Switch｜任天堂(香港)有限公司</title>
+    <style>
+
+body
+{  z-index: 0;
+    margin:0;
+ height:100%;
+}
+ .lt
+ {   position:absolute;
+     background-color:red;
+     height:70px;
+     width:140px;
+     margin-left: 0;
+     margin-right:0;
+     text-align:center;
+     vertical-align:middle;
+     margin-top:0;
+     float:left;
+     z-index: 5;!important;
+ }
+
+ #lt
+ {
+     vertical-align:middle;
+     height:70px;
+     width:110px;
+ }
+ .tops
+ {
+     background-size: 100% 100%;
+     background-repeat:no-repeat;
+     height:778px;
+     width:100%;
+     background-color: red;
+     margin:0;
+     position:relative;
+ }
+ #top0{
+     -webkit-transition: all 3s ;
+     -moz-transition: all 3s;
+     -o-transition: all 3s;
+     transition: all 3s;}
+.top
+{
+    -webkit-transition: all 3s ;
+    -moz-transition: all 3s;
+    -o-transition: all 3s;
+    transition: all 3s;
+    position:absolute;
+    background-size: 100% 100%;
+    background-repeat:no-repeat;
+    height:778px;
+    width:100%;
+    background-color: red;
+    margin:0;
+    z-index:-1;
+}
+.toplogo
+{    z-index:5;!important;
+    -webkit-transform: translate(175%,33%);
+    -moz-transform: translate(175%,33%);
+    -ms-transform: translate(175%,33%);
+    -o-transform: translate(175%,33%);
+    transform: translate(175%,33%);
+    vertical-align:middle;
+    height:60%;
+    width:22%;
+}
+    </style>
+</head>
+<body>
+<script>
+function startflow(a)
+{
+    var obj=document.getElementById("top"+a);
+    var obj0=document.getElementById("top0");
+    obj.style.zIndex=1;
+   obj0.style.transform="translate(0,100%)";
+
+
+     setTimeout(obj0.style.transform="translate(0,-200%)",3000);
+    setTimeout(obj0.style.transform="translate(0,100%)",6000);
+    setTimeout(obj.style.zIndex=-1,9000);
+
+
+
+    setTimeout(startflow((a-0+1)),9000);
+}
+//setTimeout(startflow(1),0);
+var obj=document.getElementById("top"+a);
+var obj0=document.getElementById("top0");
+//obj0.style.transform="translate(0,100%)";
+alert(obj0.style.z-Index);
+</script>
+
+<div class="tops">
+    <div class="lt">
+        <a  href="http://www.nintendo.com.hk/index.htm"/>
+        <img id="lt" src="file:///D:/switch/logo.svg"/>
+    </div>
+    <div class="top" id="top0" style="background-color:red;"></div>
+    <div class="top" id="top1" style="background-image: url(file:///D:/switch/0.jpg);"></div>
+    <div class="top" id="top2" style="background-image: url(file:///D:/switch/1.jpg);"></div>
+    <div class="top" id="top3" style="background-image: url(file:///D:/switch/2.jpg);"></div>
+    <div class="top" id="top4" style="background-image: url(file:///D:/switch/3.jpg);"></div>
+    <div class="top" id="top5" style="background-image: url(file:///D:/switch/4.jpg);"></div>
+    <div class="top" id="top6" style="background-image: url(file:///D:/switch/5.jpg);"></div>
+    <div class="top" id="top7" style="background-image: url(file:///D:/switch/6.jpg);"></div>
+    <div class="top" id="top8" style="background-image: url(file:///D:/switch/6.jpg);"></div>
+    <div class="top" id="top9" style="background-image: url(file:///D:/switch/7.jpg);"></div>
+    <div class="top" id="top10" style="background-image: url(file:///D:/switch/8.jpg);"></div>
+    <div class="top" id="top11" style="background-image: url(file:///D:/switch/9.jpg);"></div>
+    <div class="top" id="top12" style="background-image: url(file:///D:/switch/10.jpg);"></div>
+    <div class="top" id="top13" style="background-image: url(file:///D:/switch/11.jpg);"></div>
+    <div class="top" id="top14" style="background-image: url(file:///D:/switch/12.jpg);"></div>
+    <div class="top" id="top15" style="background-image: url(file:///D:/switch/13.jpg);"></div>
+    <div class="top" id="top16" style="background-image: url(file:///D:/switch/14.jpg);"></div>
+    <div class="top" id="top17" style="background-image: url(file:///D:/switch/15.jpg);"></div>
+    <img class="toplogo" src="file:///D:/switch/logo.png">
+
+</div>
+
+</body>
+</html>
