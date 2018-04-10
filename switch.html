@@ -53,7 +53,10 @@ body
      transform: translate(0,100%);*/
  z-index:2;}
 .top
-{
+{    -webkit-transition: transform 6s ;
+    -moz-transition: transform 6s;
+    -o-transition: transform 6s;
+    transition: transform 6s;
     position:absolute;
     background-size: 100% 100%;
     background-repeat:no-repeat;
@@ -63,17 +66,23 @@ body
     margin:0;
     z-index:0;
 }
-
+.arrow{
+    position:absolute;
+    z-index:3;
+    height:20px;
+    width:auto;
+    transform:translate(1210%,3560%);
+}
 .toplogo
 {    z-index: 3;
-    -webkit-transform: translate(175%,33%);
-    -moz-transform: translate(175%,33%);
-    -ms-transform: translate(175%,33%);
-    -o-transform: translate(175%,33%);
-    transform: translate(175%,33%);
+    -webkit-transform: translate(168%,33%);
+    -moz-transform: translate(168%,33%);
+    -ms-transform: translate(168%,33%);
+    -o-transform: translate(168%,33%);
+    transform: translate(168%,33%);
     vertical-align:middle;
     height:60%;
-    width:22%;
+    width:23%;
     position:absolute;
 }
     </style>
@@ -83,8 +92,8 @@ body
 
 <div class="tops">
     <div class="lt">
-        <a  href="http://www.nintendo.com.hk/index.htm"/>
-        <img id="lt" src="file:///D:/switch/logo.svg"/>
+     <!--   <a  href="http://www.nintendo.com.hk/index.htm"/>-->
+        <img id="lt" src="file:///D:/switch/logo.svg" onclick="windowop()"/ >
     </div>
     <div class="top" id="top0" style="background-color:red;"></div>
     <div class="top" id="top1" style="background-image: url(file:///D:/switch/0.jpg);"></div>
@@ -105,6 +114,7 @@ body
     <div class="top" id="top16" style="background-image: url(file:///D:/switch/14.jpg);"></div>
     <div class="top" id="top17" style="background-image: url(file:///D:/switch/15.jpg);"></div>
     <img class="toplogo" src="file:///D:/switch/logo.png">
+    <img class="arrow" src="file:///D:/switch/arrow.svg">
 
 </div>
 <script>
@@ -113,11 +123,13 @@ body
     var top=document.getElementById("top"+a);
     var top0=document.getElementById("top0");
    top.style.zIndex=1;
-
+   top.style.transform="scale(1.1)";
    top0.style.transform="translate(0,100%)";
-   setTimeout(function(){top0.style.zIndex=-2},3000);
+  // setTimeout(function(){top0.style.zIndex=-2},3000);
+   // setTimeout(function(){top0.style.display="none";},3000);
     setTimeout(function(){top0.style.transform="translate(0,-100%)"},3000);
-    setTimeout(function(){top0.style.zIndex=2},6000);
+  //  setTimeout(function(){top0.style.transition="all 3s";},4000);
+ //   setTimeout(function(){top0.style.display="block"},6000);
     setTimeout(function(){top0.style.transform="translate(0,0)"},6000);
     setTimeout(function(){top.style.zIndex=0},9000);
 
@@ -128,7 +140,10 @@ body
 }
 setTimeout(startflow(1),1000);
 
-
+function windowop()
+{
+    window.open("http://www.nintendo.com.hk/index.htm");
+}
 </script>
 </body>
 </html>
