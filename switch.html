@@ -9,6 +9,7 @@ body
 {  z-index: -1;
     margin:0;
  height:11190.4px;
+    overflow-x: hidden;
 }
  .lt
  {   position:absolute;
@@ -66,6 +67,14 @@ body
     margin:0;
     z-index:0;
 }
+#bcgimg
+{
+    height:778px;
+    width:100%;
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+    position:fixed;
+}
 .arrow{
     position:absolute;
     z-index:3;
@@ -89,8 +98,8 @@ body
 </head>
 <body>
 
-
-<div class="tops">
+<div id="bcgimg" style="background-image: url(file:///D:/switch/bg.jpg)"></div>
+<div class="tops" id="tops">
     <div class="lt">
      <!--   <a  href="http://www.nintendo.com.hk/index.htm"/>-->
         <img id="lt" src="file:///D:/switch/logo.svg" onclick="windowop()"/ >
@@ -114,9 +123,12 @@ body
     <div class="top" id="top16" style="background-image: url(file:///D:/switch/14.jpg);"></div>
     <div class="top" id="top17" style="background-image: url(file:///D:/switch/15.jpg);"></div>
     <img class="toplogo" src="file:///D:/switch/logo.png">
-    <img class="arrow" src="file:///D:/switch/arrow.svg">
+    <img class="arrow" src="file:///D:/switch/arrow.svg" onclick="scrollWindow()"/></div>
+    <div id="floatpic">
+        <div><img src="file:///D:/switch/headline-01.png"></div>
+        <div><img src="file:///D:/switch/headline-02.png"></div></div>
 
-</div>
+
 <script>
     function startflow(a)
 {   if(a==18){a=1;}
@@ -138,12 +150,25 @@ body
     setTimeout(function(){startflow((a-0+1))},9000);
 
 }
-setTimeout(startflow(1),1000);
+startflow(1);
 
 function windowop()
 {
     window.open("http://www.nintendo.com.hk/index.htm");
 }
+function scrollWindow()
+{   var obj=document.getElementById("tops");
+obj.style.transition="all 0.5s";
+obj.style.transform="translate(0,-200%)";
+    window.scrollTo(0,414.4);
+}
+    window.addEventListener('scroll' , function()
+    { var obj=document.documentElement.scrollTop;
+    var obj0=document.getElementById("tops");
+    if(obj==0) {obj0.style.transform="translate(0,0)";}
+    if(obj!=0) {obj0.style.transition="all 0.5s";
+        obj0.style.transform="translate(0,-200%)";}
+    })
 </script>
 </body>
 </html>
