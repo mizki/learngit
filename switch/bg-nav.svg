@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 11">
+   <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="bg-nav.svg" class="cls-1" d="M1348,461v-3h3v3h-3Zm0-7h3v3h-3v-3Zm0-4h3v3h-3v-3Zm-4,8h3v3h-3v-3Zm0-4h3v3h-3v-3Zm0-4h3v3h-3v-3Zm-4,8h3v3h-3v-3Zm0-4h3v3h-3v-3Zm0-4h3v3h-3v-3Z" transform="translate(-1340 -450)"/>
+</svg>
