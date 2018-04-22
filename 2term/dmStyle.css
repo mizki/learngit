@@ -1,0 +1,27 @@
+.input {
+    border-color: #94c0be;
+    width: 60%;
+    height: 20%;
+    margin: 0;
+}
+
+.button {
+    margin: 0;
+    width: 10%;
+    height: 20%;
+    border: none;
+    background-color: cyan;
+
+}
+
+.dm {
+    float: right;
+    transition: all, 10s;
+    font-size: 15px;
+
+}
+
+div {
+    text-align: center;
+    display: block;
+}

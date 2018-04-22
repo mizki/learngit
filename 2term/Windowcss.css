@@ -1,0 +1,11 @@
+.float {
+    position: fixed;
+    margin-left: 70%;
+    margin-top: 0;
+    width: 30%;
+
+}
+
+.close {
+    height: 5%;
+}
